@@ -1,6 +1,6 @@
---ds
-  game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ready"):FireServer()
-        local replayName =  "t.txt"
+--ero
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ready"):FireServer()
+        local replayName =   "t.txt"
         local startTime = tick()
      local macro = readfile(replayName)
      local httpService = game:GetService("HttpService")
@@ -10,7 +10,7 @@
      end
      
         local function place(info)
-            repeat wait(.1) until tonumber(info.moneyreq) <= game.Players.LocalPlayer.Money.Value
+            repeat task.wait() until tonumber(info.moneyreq) <= game.Players.LocalPlayer.Money.Value
             local args = {
                 [1] = info.character,
                 [2] = stcf(info.position),
@@ -26,7 +26,7 @@
             for i,v in pairs(game:GetService("Workspace").Unit[game.Players.LocalPlayer.Name]:GetChildren()) do 
                 if v:IsA("Model") and v.Name == info.character and v:FindFirstChild("HumanoidRootPart") and v.HumanoidRootPart.CFrame  == stcf(info.cframe) then 
                     local max_upgrade = v.Stats.TotalValue.Value
-                    repeat wait(.1) until tonumber(info.maxupgrades) <= max_upgrade
+                    repeat task.wait() until tonumber(info.maxupgrades) <= max_upgrade
                 local args = {
                 [1] = v
                 }
