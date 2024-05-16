@@ -1,6 +1,6 @@
---d
+--ds
   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ready"):FireServer()
-        local replayName =   getgenv().Settings.FileName ..".txt"
+        local replayName =  "t.txt"
         local startTime = tick()
      local macro = readfile(replayName)
      local httpService = game:GetService("HttpService")
