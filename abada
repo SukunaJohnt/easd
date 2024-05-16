@@ -1,5 +1,6 @@
-    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ready"):FireServer()
-        local replayName =   "t.txt"
+--d
+  game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ready"):FireServer()
+        local replayName =   getgenv().Settings.FileName ..".txt"
         local startTime = tick()
      local macro = readfile(replayName)
      local httpService = game:GetService("HttpService")
@@ -20,10 +21,12 @@
         end 
         
         local function upgrade(info)
-            local max_upgrade = game:GetService("Workspace").Unit[game.Players.LocalPlayer.Name]:WaitForChild(info.character).Stats.TotalValue.Value
-            repeat wait(.1) until tonumber(info.maxupgrades) <= max_upgrade
+
+          
             for i,v in pairs(game:GetService("Workspace").Unit[game.Players.LocalPlayer.Name]:GetChildren()) do 
                 if v:IsA("Model") and v.Name == info.character and v:FindFirstChild("HumanoidRootPart") and v.HumanoidRootPart.CFrame  == stcf(info.cframe) then 
+                    local max_upgrade = v.Stats.TotalValue.Value
+                    repeat wait(.1) until tonumber(info.maxupgrades) <= max_upgrade
                 local args = {
                 [1] = v
                 }
